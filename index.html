@@ -1,0 +1,634 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#clients" class="toc-h1 toc-link" data-title="Clients">Clients</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-users" class="toc-h2 toc-link" data-title="GET All Users">GET All Users</a>
+                  </li>
+                  <li>
+                    <a href="#get-client" class="toc-h2 toc-link" data-title="GET Client">GET Client</a>
+                  </li>
+                  <li>
+                    <a href="#post-create-client" class="toc-h2 toc-link" data-title="POST Create Client">POST Create Client</a>
+                  </li>
+                  <li>
+                    <a href="#put-update-client" class="toc-h2 toc-link" data-title="PUT Update Client">PUT Update Client</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#profile" class="toc-h1 toc-link" data-title="Profile">Profile</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-profile-history" class="toc-h2 toc-link" data-title="GET Profile History">GET Profile History</a>
+                  </li>
+                  <li>
+                    <a href="#put-update-profile" class="toc-h2 toc-link" data-title="PUT Update Profile">PUT Update Profile</a>
+                  </li>
+                  <li>
+                    <a href="#post-add-profile-history" class="toc-h2 toc-link" data-title="POST Add Profile History">POST Add Profile History</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>This API is used to allow clients to pull and push data to ePreventions system, to help manage their clients data.</p>
+<h1 id='authentication'>Authentication</h1>
+<p>While using the ePreventions API, you will need to add API key to each request header. The API key can be generated and invalidated at anytime by an admin in the ePrevention application.</p>
+
+<p><code>x-epreventions-auth-token: YOUR_AUTH_KEY</code></p>
+
+<aside class="notice">
+You must replace <code>YOUR_AUTH_TOKEN</code> with your company API key.
+</aside>
+<h1 id='clients'>Clients</h1><h2 id='get-all-users'>GET All Users</h2>
+<p>This endpoint returns a list of all users a company.</p>
+
+<aside class="notice">
+You can use the clientid that is returned for the users to modify and retrive data in client endpoints.
+</aside>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/1/users'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
+   <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"clientid"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fullname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sam Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"drug"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sobriety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000-00-00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"949 555-1234"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"568d60cbb47219274947c5921456177448432.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"clientid"</span><span class="p">:</span><span class="w"> </span><span class="mi">881</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fullname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"drug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Opioids"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sobriety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-19"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56d4e9061d24080221a53cc41456793982857.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyid/users</code></p>
+<h2 id='get-client'>GET Client</h2>
+<p>This endpoint returns a specified client.</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/1/client/128'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
+   <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"clientid"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fullname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sam Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"drug"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sobriety"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000-00-00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contact"</span><span class="p">:</span><span class="w"> </span><span class="s2">"949 555-1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"568d60cbb47219274947c5921456177448432.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid</code></p>
+<h2 id='post-create-client'>POST Create Client</h2><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/1/client'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
+   <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">fullname</span><span class="p">:</span> <span class="s1">'Sam Smith'</span><span class="p">,</span> <span class="c1">//required</span>
+    <span class="na">email</span><span class="p">:</span> <span class="s1">'s.smith@gmail.com'</span><span class="p">,</span> <span class="c1">//required</span>
+    <span class="na">age</span><span class="p">:</span> <span class="s1">'25'</span><span class="p">,</span>
+    <span class="na">location</span><span class="p">:</span> <span class="s2">"2255 East ave st Irvine CA, 92168"</span><span class="p">,</span>
+    <span class="na">mobile</span><span class="p">:</span> <span class="s2">"9683348912"</span><span class="p">,</span>
+    <span class="na">sex</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
+    <span class="na">drug</span><span class="p">:</span> <span class="s2">"narcotics"</span><span class="p">,</span>
+    <span class="na">sobriety</span><span class="p">:</span> <span class="s2">"2015-01-01"</span> 
+
+  <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"clientid"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new client for you company.</p>
+<h3 id='required-fields'>Required Fields</h3>
+<p><code>fullname</code>
+<code>email</code></p>
+<h3 id='optional-fields'>Optional Fields</h3>
+<p><code>age</code>
+<code>location</code>
+<code>mobile</code>
+<code>sex</code>
+<code>drugs</code>
+<code>sobriety</code></p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyid/client</code></p>
+<h2 id='put-update-client'>PUT Update Client</h2><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'PUT'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/1/client/112'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
+   <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">fullname</span><span class="p">:</span> <span class="s1">'Sam Smith'</span><span class="p">,</span> <span class="c1">//required</span>
+    <span class="na">email</span><span class="p">:</span> <span class="s1">'s.smith@gmail.com'</span><span class="p">,</span> <span class="c1">//required</span>
+    <span class="na">age</span><span class="p">:</span> <span class="s1">'25'</span><span class="p">,</span>
+    <span class="na">location</span><span class="p">:</span> <span class="s2">"2255 East ave st Irvine CA, 92168"</span><span class="p">,</span>
+    <span class="na">mobile</span><span class="p">:</span> <span class="s2">"5551231234"</span><span class="p">,</span>
+    <span class="na">sex</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">,</span>
+    <span class="na">drug</span><span class="p">:</span> <span class="s2">"narcotics"</span><span class="p">,</span>
+    <span class="na">sobriety</span><span class="p">:</span> <span class="s2">"2015-01-01"</span> 
+  <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updated a client.</p>
+<h3 id='fields-to-update'>Fields to update</h3>
+<p><code>fullname</code>
+<code>email</code>
+<code>age</code>
+<code>location</code>
+<code>mobile</code>
+<code>sex</code>
+<code>drugs</code>
+<code>sobriety</code></p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid</code></p>
+<h1 id='profile'>Profile</h1>
+<p>Profile endpoints use the field names of the profile questions configured to your company, through your ePrevention admin. If you are note sure what field names to use, contact your ePreventions admin, and they can provide them for you.</p>
+<h2 id='get-profile-history'>GET Profile History</h2>
+<p>This endpoint retrieves the history for a profile field of a given client.</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/1/client/112/profile-history/field/background_notes'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
+   <span class="p">}</span>
+  <span class="nl">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunt in culpa qui officia deserunt mollit anim"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-10T06:49:40+00:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-19T06:49:40+00:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-10T06:49:54+00:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pellentesque habitant morbi tristique senectus. Dignissim enim sit amet venenatis urna cursus eget nunc scelerisque."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-19T08:02:43+00:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid/profile-history/field/:fieldname</code></p>
+<h2 id='put-update-profile'>PUT Update Profile</h2>
+<p>All data will update the current value of the client&#39;s profile, and will also be added to a profile history table in the order the request are received.</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'PUT'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/1/client/112/profile'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
+   <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">living_arrangement</span><span class="p">:</span> <span class="s2">"Ut enim ad minim veniam, quis nostrud exercitation ullamco"</span><span class="p">,</span>
+    <span class="na">background_notes</span><span class="p">:</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</span>
+  <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='body-format'>Body format</h3>
+<p>{<code>fieldname</code>: <code>value</code>}</p>
+
+<p>You can update one or multiple fields ina single request for a client.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid/profile</code></p>
+<h2 id='post-add-profile-history'>POST Add Profile History</h2>
+<p>This endpoint will add all data for a field to the clients profile history table. It <strong>will not</strong> update the current value of the client&#39;s profile</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/1/client/112/profile-history/field/background_notes'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> 
+     <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
+   <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">"value"</span><span class="p">:</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">:</span> <span class="s2">"2016-04-10"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"value"</span><span class="p">:</span> <span class="s2">"sunt in culpa qui officia deserunt mollit anim"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">:</span> <span class="s2">"2016-01-01"</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='body-format-2'>Body format</h3>
+<p>[ {<code>value</code>: &quot;data to update&quot;, <code>timestamp</code>: &quot;0000-00-00&quot;} ]</p>
+
+<p>This endpoint accepts an array of updates for a given field. Each update needs 2 fields, <strong>value</strong> which contains the information to be added. and <strong>timestamp</strong> which is used to represent the time and order the updates occurred.
+<code>If a timestamp is not provides, it will default to the current time the request was made.</code></p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid/profile-history/field/:fieldname</code></p>
+<h1 id='errors'>Errors</h1>
+<p>The ePreventions API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is not in the required format.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- You are not authorized for the requested endpoint.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The resource you requested in not found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
