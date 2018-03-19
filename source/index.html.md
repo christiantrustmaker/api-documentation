@@ -26,6 +26,90 @@ While using the ePreventions API, you will need to add API key to each request h
 You must replace <code>YOUR_AUTH_TOKEN</code> with your company API key.
 </aside>
 
+# Case Managers
+
+## GET Case Managers
+
+```javascript
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'https://stage.epreventions.com/api.php/companies/9/case-managers',
+  headers: 
+   { 'cache-control': 'no-cache',
+     'x-epreventions-auth-token': '+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI=' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+This endpoint returns a list of case managers for a company.
+
+<aside class="notice">
+You can use the email that is returned for the case managers to add case managers to a client.
+</aside>
+
+### HTTP Request
+
+`https://stage.epreventions.com/api.php/companies/9/case-managers`
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "casemangers": [
+        {
+            "email": "test_case_manager@gmail.com"
+        },
+        {
+            "email": "case_manager_2@gmail.com"
+        }
+    ]
+}
+```
+
+## POST Add case manager to Client 
+
+```javascript
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://stage.epreventions.com/api.php/companies/9/client/1052/case-manager',
+  headers: 
+   { 'cache-control': 'no-cache',
+     'content-type': 'application/json',
+     'x-epreventions-auth-token': '+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI=' },
+  body: { email: 'test_case_manager@gmail.com' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status": "success"
+}
+```
+
+This adds a case manager to a client.
+
+### Required Fields
+`email`
+
+### HTTP Request
+
+`https://stage.epreventions.com/api.php/companies/:companyId/client/:clientId/case-manager`
+
+
 # Clients
 
 
@@ -270,9 +354,6 @@ This endpoint updated a client.
 
 `https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid`
 
-# Profile
-Profile endpoints use the field names of the profile questions configured to your company, through your ePrevention admin. If you are note sure what field names to use, contact your ePreventions admin, and they can provide them for you.
-
 
 
 ## GET Profile History 
@@ -288,7 +369,7 @@ var options = { method: 'GET',
      'cache-control': 'no-cache',
      'content-type': 'application/json',
      'x-epreventions-auth-token': '+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI=' 
-   }
+   },
   json: true };
 
 request(options, function (error, response, body) {
