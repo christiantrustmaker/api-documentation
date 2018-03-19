@@ -225,6 +225,17 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#case-managers" class="toc-h1 toc-link" data-title="Case Managers">Case Managers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-case-managers" class="toc-h2 toc-link" data-title="GET Case Managers">GET Case Managers</a>
+                  </li>
+                  <li>
+                    <a href="#post-add-case-manager-to-client" class="toc-h2 toc-link" data-title="POST Add case manager to Client">POST Add case manager to Client</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#clients" class="toc-h1 toc-link" data-title="Clients">Clients</a>
               <ul class="toc-list-h2">
                   <li>
@@ -239,11 +250,6 @@
                   <li>
                     <a href="#put-update-client" class="toc-h2 toc-link" data-title="PUT Update Client">PUT Update Client</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#profile" class="toc-h1 toc-link" data-title="Profile">Profile</a>
-              <ul class="toc-list-h2">
                   <li>
                     <a href="#get-profile-history" class="toc-h2 toc-link" data-title="GET Profile History">GET Profile History</a>
                   </li>
@@ -273,6 +279,72 @@
 <aside class="notice">
 You must replace <code>YOUR_AUTH_TOKEN</code> with your company API key.
 </aside>
+<h1 id='case-managers'>Case Managers</h1><h2 id='get-case-managers'>GET Case Managers</h2><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/9/case-managers'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> <span class="p">}</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+<p>This endpoint returns a list of case managers for a company.</p>
+
+<aside class="notice">
+You can use the email that is returned for the case managers to add case managers to a client.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/9/case-managers</code></p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"casemangers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_case_manager@gmail.com"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"case_manager_2@gmail.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='post-add-case-manager-to-client'>POST Add case manager to Client</h2><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://stage.epreventions.com/api.php/companies/9/client/1052/case-manager'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> 
+   <span class="p">{</span> <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span> <span class="na">email</span><span class="p">:</span> <span class="s1">'test_case_manager@gmail.com'</span> <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This adds a case manager to a client.</p>
+<h3 id='required-fields'>Required Fields</h3>
+<p><code>email</code></p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>https://stage.epreventions.com/api.php/companies/:companyId/client/:clientId/case-manager</code></p>
 <h1 id='clients'>Clients</h1><h2 id='get-all-users'>GET All Users</h2>
 <p>This endpoint returns a list of all users a company.</p>
 
@@ -330,7 +402,7 @@ You can use the clientid that is returned for the users to modify and retrive da
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>https://stage.epreventions.com/api.php/companies/:companyid/users</code></p>
 <h2 id='get-client'>GET Client</h2>
 <p>This endpoint returns a specified client.</p>
@@ -371,7 +443,7 @@ You can use the clientid that is returned for the users to modify and retrive da
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid</code></p>
 <h2 id='post-create-client'>POST Create Client</h2><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
@@ -412,7 +484,7 @@ You can use the clientid that is returned for the users to modify and retrive da
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a new client for you company.</p>
-<h3 id='required-fields'>Required Fields</h3>
+<h3 id='required-fields-2'>Required Fields</h3>
 <p><code>fullname</code>
 <code>email</code></p>
 <h3 id='optional-fields'>Optional Fields</h3>
@@ -422,7 +494,7 @@ You can use the clientid that is returned for the users to modify and retrive da
 <code>sex</code>
 <code>drugs</code>
 <code>sobriety</code></p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>https://stage.epreventions.com/api.php/companies/:companyid/client</code></p>
 <h2 id='put-update-client'>PUT Update Client</h2><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
 
@@ -470,10 +542,8 @@ You can use the clientid that is returned for the users to modify and retrive da
 <code>sex</code>
 <code>drugs</code>
 <code>sobriety</code></p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid</code></p>
-<h1 id='profile'>Profile</h1>
-<p>Profile endpoints use the field names of the profile questions configured to your company, through your ePrevention admin. If you are note sure what field names to use, contact your ePreventions admin, and they can provide them for you.</p>
 <h2 id='get-profile-history'>GET Profile History</h2>
 <p>This endpoint retrieves the history for a profile field of a given client.</p>
 <pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
@@ -485,8 +555,8 @@ You can use the clientid that is returned for the users to modify and retrive da
      <span class="s1">'cache-control'</span><span class="p">:</span> <span class="s1">'no-cache'</span><span class="p">,</span>
      <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
      <span class="s1">'x-epreventions-auth-token'</span><span class="p">:</span> <span class="s1">'+9pf/G0zI/gATopJzgl8PKXkuEQLKxz4AfPy4OsaZwph9I3hDHiIUJsFI6Raw/a1tw0ymXXDQLFeutgbp6bCHBQXslBtXhdaNMUSg2m94QI='</span> 
-   <span class="p">}</span>
-  <span class="nl">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+   <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -519,7 +589,7 @@ You can use the clientid that is returned for the users to modify and retrive da
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
 <p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid/profile-history/field/:fieldname</code></p>
 <h2 id='put-update-profile'>PUT Update Profile</h2>
 <p>All data will update the current value of the client&#39;s profile, and will also be added to a profile history table in the order the request are received.</p>
@@ -556,7 +626,7 @@ You can use the clientid that is returned for the users to modify and retrive da
 <p>{<code>fieldname</code>: <code>value</code>}</p>
 
 <p>You can update one or multiple fields ina single request for a client.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid/profile</code></p>
 <h2 id='post-add-profile-history'>POST Add Profile History</h2>
 <p>This endpoint will add all data for a field to the clients profile history table. It <strong>will not</strong> update the current value of the client&#39;s profile</p>
@@ -594,7 +664,7 @@ You can use the clientid that is returned for the users to modify and retrive da
 
 <p>This endpoint accepts an array of updates for a given field. Each update needs 2 fields, <strong>value</strong> which contains the information to be added. and <strong>timestamp</strong> which is used to represent the time and order the updates occurred.
 <code>If a timestamp is not provides, it will default to the current time the request was made.</code></p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>https://stage.epreventions.com/api.php/companies/:companyid/client/:clientid/profile-history/field/:fieldname</code></p>
 <h1 id='errors'>Errors</h1>
 <p>The ePreventions API uses the following error codes:</p>
